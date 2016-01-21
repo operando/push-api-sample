@@ -1,0 +1,36 @@
+{
+  "short_name": "Web Application Manifest Sample",
+  "name": "Web Application Manifest Sample",
+  "icons": [
+    {
+      "src": "image/ic_launcher.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "density": 2.0
+    },
+    {
+      "src": "image/ic_android_black_48dp.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "density": 3.0
+    },
+    {
+      "src": "image/ic_important_devices_white_48dp.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "density": 4.0
+    }
+  ],
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#ff0000",
+  "prefer_related_applications": true,
+  "related_applications": [
+      {
+        "platform": "play",
+        "id": "com.kouzoh.mercari"
+      }
+  ],
+  "gcm_sender_id": "439129296837"
+}
