@@ -16,11 +16,12 @@ window.addEventListener('load', function() {
         body: JSON.stringify({
             registration_id: subscriptionId
         }),
-        credentials: 'no-cors'
+        mode: 'cors'
       }).then(function(response) {
         return response.json();
       })
       .then((responseObj) => {
+          console.log(responseObj);
         if (!responseObj.success) {
           throw new Error('Unsuccessful attempt to send push message');
         }
