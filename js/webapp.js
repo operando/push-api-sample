@@ -16,7 +16,7 @@ window.addEventListener('load', function() {
         body: JSON.stringify({
             registration_id: subscriptionId
         }),
-        mode: 'cors'
+        mode: 'no-cors'
       }).then(function(response) {
         return response.json();
       })
