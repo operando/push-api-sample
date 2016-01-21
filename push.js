@@ -3,7 +3,7 @@ self.addEventListener('push', function(evt) {
     self.registration.showNotification(
       'test',
       {
-        actions: [{action: 'run', title: "Run"},{action: 'buy', title: "Buy"}],
+        actions: [{action: 'mercari', title: "Mercari🍣"},{action: 'buy', title: "Buy"}],
         icon: '/image/ic_android_black_48dp.png',
         body: 'test',
         tag: 'tag'
@@ -15,8 +15,8 @@ self.addEventListener('push', function(evt) {
 self.addEventListener('notificationclick', function(evt) {
   evt.notification.close();
 
-  if (evt.action == 'run') {
-      clients.openWindow('mercari://run');
+  if (evt.action == 'mercari') {
+      clients.openWindow('https://mercari.com');
   } else if(evt.action == 'buy') {
 
   } else {
