@@ -13,9 +13,9 @@ window.addEventListener('load', function() {
       fetch('https://android.googleapis.com/gcm/send', {
         method: 'post',
         headers: headers,
-        body: JSON.stringify(
+        body: JSON.stringify({
             registration_id: subscriptionId
-        ),
+        }),
         credentials: 'no-cors'
       }).then(function(response) {
         return response.json();
