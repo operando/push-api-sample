@@ -18,7 +18,7 @@ self.addEventListener('notificationclick', function(evt) {
   if (evt.action == 'run') {
       clients.openWindow('mercari://run');
   } else if(evt.action == 'buy') {
-      
+
   } else {
       evt.waitUntil(
         clients.matchAll({ type: 'window' }).then(function(evt) {
@@ -32,7 +32,7 @@ self.addEventListener('notificationclick', function(evt) {
           }
           if(clients.openWindow)
             return clients.openWindow('./');
-        })
+        });
     }
   );
 }, false);
