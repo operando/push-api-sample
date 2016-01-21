@@ -78,6 +78,7 @@ function registerNotification(s) {
   if(('subscriptionId' in s) && !s.endpoint.match(s.subscriptionId))
     endpoint += '/' + s.subscriptionId;
     console.log(endpoint);
+    document.getElementById('id').innerHTML = endpoint;
   // 自分のWebアプリサーバ等にプッシュ通知を登録する処理をここに実装
   // endpointにプッシュサービスのエンドポイントのURLが格納される
 }
