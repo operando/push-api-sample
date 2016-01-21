@@ -5,7 +5,7 @@ window.addEventListener('load', function() {
   document.getElementById('push').addEventListener('click', setPush , false);
   document.getElementById('execut_push').addEventListener('click', function(e) {
       var headers = new Headers();
-      var key = document.getElementById('key').text;
+      var key = "key=" + document.getElementById('key').value;
 
       headers.append('Content-Type', 'application/json');
       headers.append('Authorization', key);
@@ -14,7 +14,7 @@ window.addEventListener('load', function() {
         method: 'post',
         headers: headers,
         body: JSON.stringify({
-            registration_id: subscriptionId
+            registration_ids: [subscriptionId]
         }),
         mode: 'no-cors'
       }).then(function(response) {
