@@ -5,7 +5,7 @@ window.addEventListener('load', function() {
 }, false);
 
 function register() {
-  navigator.serviceWorker.register('push.js').then(checkNotification);
+  navigator.serviceWorker.register('./push.js').then(checkNotification);
 }
 
 function checkNotification() {
