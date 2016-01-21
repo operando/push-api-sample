@@ -1,6 +1,31 @@
+var subscriptionId = null;
+
 window.addEventListener('load', function() {
   document.getElementById('register').addEventListener('click', register, false);
   document.getElementById('push').addEventListener('click', setPush , false);
+  document.getElementById('execut_push').addEventListener('click', function(e) {
+      var headers = new Headers();
+      var key = document.getElementById('key').text;
+
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', key);
+
+      fetch('https://android.googleapis.com/gcm/send', {
+        method: 'post',
+        headers: headers,
+        body: JSON.stringify("{\"registration_ids\":[\"" + subscriptionId + "\"]}")
+      }).then(function(response) {
+        return response.json();
+      })
+      .then((responseObj) => {
+        if (!responseObj.success) {
+          throw new Error('Unsuccessful attempt to send push message');
+        }
+      })
+      .catch(function(err) {
+        console.log('Fetch Error :-S', err);
+      });
+    });
   navigator.serviceWorker.ready.then(checkPush);
 }, false);
 
@@ -78,6 +103,7 @@ function registerNotification(s) {
   if(('subscriptionId' in s) && !s.endpoint.match(s.subscriptionId))
     endpoint += '/' + s.subscriptionId;
     console.log(endpoint);
+    subscriptionId = s.subscriptionId;
     document.getElementById('id').innerHTML = endpoint;
   // 自分のWebアプリサーバ等にプッシュ通知を登録する処理をここに実装
   // endpointにプッシュサービスのエンドポイントのURLが格納される
