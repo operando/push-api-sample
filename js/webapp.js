@@ -77,6 +77,7 @@ function registerNotification(s) {
   // Chrome 43以前への対処
   if(('subscriptionId' in s) && !s.endpoint.match(s.subscriptionId))
     endpoint += '/' + s.subscriptionId;
+    console.log(endpoint);
   // 自分のWebアプリサーバ等にプッシュ通知を登録する処理をここに実装
   // endpointにプッシュサービスのエンドポイントのURLが格納される
 }
