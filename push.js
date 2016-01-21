@@ -32,7 +32,6 @@ self.addEventListener('notificationclick', function(evt) {
           }
           if(clients.openWindow)
             return clients.openWindow('./');
-        });
+        }));
     }
-  );
 }, false);
